@@ -75,6 +75,7 @@ img {
     width: 80%;
     max-height: 400px;
     object-fit: contain;
+    mix-blend-mode: multiply;
 }
 
 /* ===== BUTTON ===== */
@@ -168,7 +169,6 @@ img {
     text-align: center;
 }
 
-/* optional grey effect */
 .sold img {
     filter: grayscale(60%);
     opacity: 0.7;
@@ -186,6 +186,68 @@ img {
     background: white;
     padding: 20px;
     text-align: center;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    .hero-premium {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+        width: 60%;
+        max-height: 250px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .nav-links a {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .insta-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    img {
+        height: 220px;
+    }
+
+    .slides img {
+        height: 250px;
+    }
 }
 
 </style>
@@ -213,13 +275,13 @@ img {
 
         <a href="#collection" class="btn">Explore Collection</a>
         <br><br>
-        <a href="https://www.instagram.com/madhurakshiofficial" target="_blank" class="btn">
+        <a href="https://ig.me/m/madhurakshiofficial" target="_blank" class="btn">
             Order via Instagram 📩
         </a>
     </div>
 
     <div class="hero-image">
-        <img src="logo.png">
+        <img src="logo.png" alt="Madhurakshi Logo">
     </div>
 </div>
 
@@ -235,38 +297,23 @@ img {
     </div>
 </div>
 
-<!-- COLLECTION TYPES -->
-<div class="section" id="collection">
-    <h2>Shop by Collection</h2>
-    <div class="categories">
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf"><h3>Lehengas</h3></div>
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2"><h3>Anarkali</h3></div>
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990"><h3>Kurthi</h3></div>
-    </div>
-</div>
-
 <!-- BESTSELLERS -->
 <div class="section">
     <h2>Bestsellers</h2>
 
     <div class="products">
 
-        <!-- SOLD OUT PRODUCT -->
         <div class="card sold">
             <div class="sold-out">SOLD OUT</div>
             <img src="https://images.unsplash.com/photo-1593032465171-8d1d6a8f9b10">
             <h3>Signature Anarkali</h3>
         </div>
 
-        <!-- NORMAL PRODUCT -->
         <div class="card">
-            <img src="/Users/vineelavinjam/Downloads/_ (2).jpeg">
+            <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2">
             <h3>Festive Lehenga</h3>
-            <!-- class="card sold" -->
-            <div class="sold-out">SOLD OUT</div>
         </div>
 
-        <!-- NORMAL PRODUCT -->
         <div class="card">
             <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990">
             <h3>Classic Kurthi</h3>
