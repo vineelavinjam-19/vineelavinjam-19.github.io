@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Madhurakshi</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdf6ee;
+}
+
+.logo-text {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 3px;
+    color: #8b0000;
+}
+
+.heading {
+    font-family: 'Playfair Display', serif;
+}
+
+.fixed-img {
+    height: 260px;
+    width: 100%;
+    object-fit: cover;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="flex justify-between items-center p-4 bg-white shadow-md sticky top-0 z-50">
+    <h1 class="logo-text text-xl">MADHURAKSHI</h1>
+
+    <button onclick="toggleMenu()" class="md:hidden text-2xl">☰</button>
+
+    <div class="hidden md:flex gap-6 text-sm">
+        <a href="#">Home</a>
+        <a href="#collection">Collections</a>
+        <a href="#contact">Contact</a>
+    </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="hidden flex-col items-center bg-white py-4 md:hidden">
+    <a href="#" class="py-2">Home</a>
+    <a href="#collection" class="py-2">Collections</a>
+    <a href="#contact" class="py-2">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="px-6 py-12 md:flex md:items-center md:justify-between">
+
+    <div class="md:w-1/2 text-center md:text-left">
+        <h1 class="heading text-2xl md:text-4xl text-[#8b5e3c] leading-relaxed font-semibold">
+            Madhurakshi is for the grace she carries,
+            the stories she weaves, and the elegance she becomes.
+        </h1>
+
+        <div class="mt-6">
+            <a href="#collection" class="bg-red-800 text-white px-6 py-2 rounded mr-2">
+                Explore Collection
+            </a>
+
+            <a href="https://www.instagram.com/madhurakshiofficial/?hl=en" target="_blank"
+               class="bg-red-800 text-white px-6 py-2 rounded">
+            Instagram
+            </a>
+        </div>
+    </div>
+
+    <div class="md:w-1/3 mt-8 md:mt-0">
+        <img src="logo.png" class="mx-auto mix-blend-multiply">
+    </div>
+
+</div>
+
+<!-- NEW COLLECTION -->
+<div class="px-6 py-10 bg-[#e8d5c4] rounded-xl mx-4 md:mx-10 overflow-hidden">
+
+    <h2 class="heading text-xl text-center mb-6 text-red-800">
+        New Collection ✨
+    </h2>
+
+    <div class="relative w-full overflow-hidden">
+        <div id="slider" class="flex transition-transform duration-700">
+
+            <div class="min-w-full flex flex-col items-center justify-center text-center px-4">
+                <img src="logo.png" class="w-48 mb-4 mix-blend-multiply">
+                <p class="text-[#6b4a34]">
+                    A story woven in grace and tradition.
+                </p>
+            </div>
+
+            <div class="min-w-full text-center px-4">
+                <img class="w-64 h-64 object-cover mx-auto rounded shadow-md"
+                     src="https://images.unsplash.com/photo-1583391733956-6c78276477e2">
+                <p class="mt-3 text-[#6b4a34]">Handcrafted elegance</p>
+            </div>
+
+            <div class="min-w-full text-center px-4">
+                <img class="w-64 h-64 object-cover mx-auto rounded shadow-md"
+                     src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf">
+                <p class="mt-3 text-[#6b4a34]">Modern silhouettes</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- COLLECTION -->
+<div id="collection" class="px-6 py-10 text-center">
+    <h2 class="heading text-xl mb-6 text-red-800">Shop by Collection</h2>
+    <p class="text-[#6b4a34]">
+                    Discover your timeless pieces, designed to elevate your everyday elegance.
+                </p>
+    <br><br>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+        <a href="lehengas.html">
+    <div class="cursor-pointer hover:scale-105 transition">
+        <img class="fixed-img rounded" src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf">
+        <p class="mt-2">Lehengas</p>
+    </div>
+</a>
+
+        <a href="anarkali.html">
+    <div class="cursor-pointer hover:scale-105 transition">
+        <img class="fixed-img rounded" src="https://images.unsplash.com/photo-1583391733956-6c78276477e2">
+        <p class="mt-2">Anarkali</p>
+    </div>
+</a>
+
+        <a href="kurthi.html">
+    <div class="cursor-pointer hover:scale-105 transition">
+        <img class="fixed-img rounded" src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990">
+        <p class="mt-2">Kurthi</p>
+    </div>
+</a>
+
+        <a href="dresses.html">
+    <div class="cursor-pointer hover:scale-105 transition">
+        <img class="fixed-img rounded" src="https://images.unsplash.com/photo-1593032465171-8d1d6a8f9b10">
+        <p class="mt-2">Dresses</p>
+    </div>
+</a>
+
+    </div>
+</div>
+
+<!-- FOOTER / CONTACT -->
+<div id="contact" class="bg-gradient-to-b from-[#8b0000] to-[#5a0000] text-white font-[Poppins]">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-20 grid md:grid-cols-3 gap-20">
+
+        <!-- LEFT -->
+        <div>
+            <img src="logo.png" class="w-150 mb-18">
+
+            <p class="text-[15px] leading-7 text-[#f5dada] max-w-sm mb-15">
+                Madhurakshi is about a woman who carries grace in silence,
+                and lets her elegance speak to the world.
+            </p>
+
+            <p class="text-sm text-[#f5dada]">
+                
+            </p>
+        </div>
+
+        <!-- SHOP -->
+        <div>
+            <h3 class="font-semibold mb-6 text-[#fde68a]">Shop</h3>
+            <div class="space-y-3 text-sm">
+                <p>Anarkali</p>
+                <p>Lehenga</p>
+                <p>Kurthi</p>
+                <p>Dresses</p>
+                <p>Sharara Sets</p>
+                <p>Skirt Sets</p>
+            </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div>
+            <h3 class="font-semibold mb-6 text-[#fde68a]">Quick Links</h3>
+            <div class="space-y-3 text-sm">
+                <p>Our Story</p>
+                <p>Contact</p>
+                <p>FAQs</p>
+                <p>Shipping & Delivery</p>
+                <p>Return & Exchange</p>
+                <p>Privacy Policy</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- INSTAGRAM BUTTONS -->
+    <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-4">
+
+        <!-- FOLLOW BUTTON -->
+        <a href="https://instagram.com/madhurakshiofficial" target="_blank"
+           class="bg-white text-[#8b0000] px-6 py-2 rounded font-semibold hover:scale-105 transition">
+           Follow on Instagram
+        </a>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-[#c9a27a] max-w-7xl mx-auto mt-10"></div>
+
+    <!-- COPYRIGHT (CENTERED) -->
+    <div class="text-center py-6 text-sm text-[#f5dada]">
+        © 2026 Madhurakshi | All rights reserved.
+    </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("hidden");
+}
+</script>
+
+<script>
+let index = 0;
+const slider = document.getElementById("slider");
+const totalSlides = slider.children.length;
+
+setInterval(() => {
+    index = (index + 1) % totalSlides;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+}, 3000);
+</script>
+
+</body>
+</html>
