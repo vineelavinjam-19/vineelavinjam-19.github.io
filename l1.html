@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Red Lehenga | Madhurakshi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --crimson: #8b0000;
+    --crimson-light: #a31515;
+    --gold: #c9a84c;
+    --gold-light: #e8c97e;
+    --cream: #fdf6ee;
+    --text-brown: #5c3d2e;
+    --text-light: #8a6a5a;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--text-brown);
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background: var(--white);
+    box-shadow: 0 1px 12px rgba(139,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-text {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 4px;
+    color: var(--crimson);
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .back-link {
+    font-size: 0.85rem;
+    color: var(--crimson);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+  .back-link:hover { opacity: 0.7; }
+
+  /* ─── MAIN LAYOUT ─── */
+  .product-wrapper {
+    max-width: 1080px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    padding: 0 32px 60px;
+  }
+
+  @media (max-width: 768px) {
+    .product-wrapper { grid-template-columns: 1fr; gap: 32px; padding: 0 16px 40px; }
+    header { padding: 14px 20px; }
+  }
+
+  /* ─── INSTAGRAM-STYLE SLIDER ─── */
+  .slider-wrapper {
+    position: relative;
+    user-select: none;
+  }
+
+  /* Main slide area */
+  .slide-track-container {
+    width: 100%;
+    aspect-ratio: 9/16;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f0e6d8;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(139,0,0,0.12);
+    cursor: grab;
+  }
+  .slide-track-container:active { cursor: grabbing; }
+
+  .slide-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .slide {
+  width: 100%;        /* ✅ FIX */
+  min-width: 100%;
+  max-width: 100%;    /* ✅ EXTRA SAFETY */
+  height: 100%;
+  flex-shrink: 0;
+  flex-grow: 0;       /* ✅ PREVENT EXPANSION */
+}
+.slide-track {
+  display: flex;
+  height: 100%;
+  width: 100%;        /* ✅ FIX */
+}
+
+  .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: #f0e6d8;
+}
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  /* Dot indicators (Instagram-style) */
+  .dot-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #d4b8a8;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+    padding: 0;
+  }
+  .dot.active {
+    background: var(--crimson);
+    width: 20px;
+    border-radius: 4px;
+  }
+
+  /* Arrow buttons — subtle, over the image */
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.82);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    z-index: 10;
+    transition: background 0.2s, opacity 0.2s;
+    font-size: 14px;
+    color: var(--crimson);
+    opacity: 0;
+  }
+  .slide-track-container:hover .arrow { opacity: 1; }
+  .arrow:hover { background: rgba(255,255,255,1); }
+  .arrow-left { left: 12px; }
+  .arrow-right { right: 12px; }
+
+  /* Thumbnail strip */
+  .thumbs {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .thumbs::-webkit-scrollbar { display: none; }
+
+  .thumb {
+    width: 60px;
+    height: 72px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s, opacity 0.2s;
+    opacity: 0.6;
+  }
+  .thumb.active {
+    border-color: var(--crimson);
+    opacity: 1;
+  }
+  .thumb:hover { opacity: 0.9; }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ─── PRODUCT DETAILS ─── */
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8px;
+  }
+
+  .product-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .product-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    line-height: 1.2;
+    color: var(--crimson);
+    margin-bottom: 6px;
+  }
+
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 16px 0;
+    border-radius: 1px;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-brown);
+    letter-spacing: -0.5px;
+  }
+
+  .price-note {
+    font-size: 0.75rem;
+    color: var(--text-light);
+  }
+
+  .product-desc {
+    font-size: 0.88rem;
+    line-height: 1.85;
+    color: var(--text-light);
+    margin-bottom: 24px;
+  }
+
+  /* Specs grid */
+  .specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .spec-item {
+    background: #fff8f2;
+    border: 1px solid #edd5be;
+    border-radius: 10px;
+    padding: 10px 14px;
+  }
+
+  .spec-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+
+  .spec-value {
+    font-size: 0.82rem;
+    color: var(--text-brown);
+    font-weight: 500;
+  }
+
+  /* CTA Button */
+  .cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--crimson) 0%, #6b0000 100%);
+    color: white;
+    text-decoration: none;
+    padding: 15px 32px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(139,0,0,0.3);
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(139,0,0,0.4);
+  }
+  .cta-btn:active { transform: translateY(0); }
+
+  .ig-icon {
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+
+  .cta-note {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1 class="logo-text">MADHURAKSHI</h1>
+  <a href="lehenga.html" class="back-link">← Back to Collection</a>
+</header>
+
+<!-- PRODUCT SECTION -->
+<div class="product-wrapper">
+
+  <!-- LEFT: SLIDER -->
+  <div class="slider-wrapper">
+
+    <!-- Main Slide Area -->
+    <div class="slide-track-container" id="sliderContainer">
+
+      <!-- Arrow Buttons -->
+      <button class="arrow arrow-left" onclick="prevSlide()" aria-label="Previous">&#8249;</button>
+      <button class="arrow arrow-right" onclick="nextSlide()" aria-label="Next">&#8250;</button>
+
+      <div class="slide-track" id="slideTrack">
+        <div class="slide"><img src="frontendimages/l1-1.png" alt="Royal Red Lehenga - Front"></div>
+        <div class="slide"><img src="frontendimages/l1-2.png" alt="Royal Red Lehenga - Detail"></div>
+        <div class="slide"><img src="frontendimages/l1-3.png" alt="Royal Red Lehenga - Side"></div>
+        <div class="slide"><img src="frontendimages/l1-4.png" alt="Royal Red Lehenga - Back"></div>
+        <div class="slide"><img src="frontendimages/l1-5.png" alt="Royal Red Lehenga - Full"></div>
+      </div>
+    </div>
+
+    <!-- Dot Indicators -->
+    <div class="dot-indicators" id="dots"></div>
+
+    <!-- Thumbnails -->
+    <div class="thumbs" id="thumbs">
+      <div class="thumb active" onclick="goToSlide(0)"><img src="frontendimages/l1-1.png" alt="1"></div>
+      <div class="thumb" onclick="goToSlide(1)"><img src="frontendimages/l1-2.png" alt="2"></div>
+      <div class="thumb" onclick="goToSlide(2)"><img src="frontendimages/l1-3.png" alt="3"></div>
+      <div class="thumb" onclick="goToSlide(3)"><img src="frontendimages/l1-4.png" alt="4"></div>
+      <div class="thumb" onclick="goToSlide(4)"><img src="frontendimages/l1-5.png" alt="5"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: DETAILS -->
+  <div class="product-details">
+    <span class="product-badge">✦ New Arrival · Limited Pieces</span>
+    <h1 class="product-title">Royal Red<br>Lehenga</h1>
+
+    <div class="divider"></div>
+
+    <div class="price-row">
+      <span class="price">₹4,999</span>
+      <span class="price-note">Inclusive of all taxes</span>
+    </div>
+
+    <p class="product-desc">
+      A luxurious handcrafted lehenga designed with intricate embroidery and rich silk blend fabric.
+      Each piece is carefully stitched for a regal silhouette — perfect for weddings, festive
+      celebrations, and statement occasions.
+    </p>
+
+    <div class="specs">
+      <div class="spec-item">
+        <div class="spec-label">Fabric</div>
+        <div class="spec-value">Silk Blend</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Work</div>
+        <div class="spec-value">Hand Embroidery</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Color</div>
+        <div class="spec-value">Deep Red</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Occasion</div>
+        <div class="spec-value">Wedding / Festive</div>
+      </div>
+    </div>
+
+    <a href="https://www.instagram.com/direct/t/17852933118603867/?hl=en" target="_blank" class="cta-btn">
+      <!-- Instagram SVG icon -->
+      <svg class="ig-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+      DM to Order on Instagram
+    </a>
+    <p class="cta-note">Usually replies within a few hours</p>
+  </div>
+
+</div>
+
+<script>
+const total = 5;
+let current = 0;
+let startX = 0;
+let isDragging = false;
+let dragDelta = 0;
+
+const track = document.getElementById('slideTrack');
+const container = document.getElementById('sliderContainer');
+const dotsContainer = document.getElementById('dots');
+const thumbEls = document.querySelectorAll('.thumb');
+
+// Create dots
+for (let i = 0; i < total; i++) {
+  const d = document.createElement('button');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.addEventListener('click', () => goToSlide(i));
+  dotsContainer.appendChild(d);
+}
+
+function updateUI() {
+  // ✅ FIXED
+  track.style.transform = `translateX(-${current * 100}%)`;
+
+  // dots
+  document.querySelectorAll('.dot').forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+  });
+
+  // thumbs
+  thumbEls.forEach((t, i) => {
+    t.classList.toggle('active', i === current);
+  });
+}
+
+function goToSlide(n) {
+  current = (n + total) % total;
+  updateUI();
+}
+
+function nextSlide() { goToSlide(current + 1); }
+function prevSlide() { goToSlide(current - 1); }
+
+/* DRAG */
+function onDragStart(e) {
+  isDragging = true;
+  startX = e.touches ? e.touches[0].clientX : e.clientX;
+  track.style.transition = 'none';
+}
+
+function onDragMove(e) {
+  if (!isDragging) return;
+
+  const x = e.touches ? e.touches[0].clientX : e.clientX;
+  dragDelta = x - startX;
+
+  const base = -current * 100;
+
+  // ✅ FIXED
+  track.style.transform = `translateX(calc(${base}% + ${dragDelta}px))`;
+}
+
+function onDragEnd() {
+  if (!isDragging) return;
+
+  isDragging = false;
+  track.style.transition = 'transform 0.38s cubic-bezier(0.4, 0, 0.2, 1)';
+
+  if (dragDelta < -50) nextSlide();
+  else if (dragDelta > 50) prevSlide();
+  else updateUI();
+
+  dragDelta = 0;
+}
+
+/* EVENTS */
+container.addEventListener('mousedown', onDragStart);
+window.addEventListener('mousemove', onDragMove);
+window.addEventListener('mouseup', onDragEnd);
+
+container.addEventListener('touchstart', onDragStart, { passive: true });
+container.addEventListener('touchmove', onDragMove, { passive: true });
+container.addEventListener('touchend', onDragEnd);
+
+// keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') nextSlide();
+  if (e.key === 'ArrowLeft') prevSlide();
+});
+
+updateUI();
+</script>
+</body>
+</html>
